@@ -389,15 +389,20 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (Players.Count < 2)
 			{
-				StartCoroutine (PlayerDeadCo ());
+				StartCoroutine (PlayerDeadCo());
 			}
 		}
 
-		/// <summary>
-		/// Triggers the death screen display after a short delay
-		/// </summary>
-		/// <returns></returns>
-		protected virtual IEnumerator PlayerDeadCo()
+        public virtual void PlayerWin()
+        {
+			GUIManager.Instance.SetWinScreen(true);
+        }
+
+        /// <summary>
+        /// Triggers the death screen display after a short delay
+        /// </summary>
+        /// <returns></returns>
+        protected virtual IEnumerator PlayerDeadCo()
 		{
 			yield return new WaitForSeconds(DelayBeforeDeathScreen);
 

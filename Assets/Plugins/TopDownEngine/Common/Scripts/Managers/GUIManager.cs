@@ -30,8 +30,11 @@ namespace MoreMountains.TopDownEngine
 		/// the pause screen game object
 		[Tooltip("the pause screen game object")]
 		public GameObject PauseScreen;
-		/// the death screen
-		[Tooltip("the death screen")]
+        /// the win screen
+        [Tooltip("the win screen")]
+        public GameObject WinScreen;
+        /// the death screen
+        [Tooltip("the death screen")]
 		public GameObject DeathScreen;
 		/// The mobile buttons
 		[Tooltip("The mobile buttons")]
@@ -100,6 +103,7 @@ namespace MoreMountains.TopDownEngine
 			RefreshPoints();
 			SetPauseScreen(false);
 			SetDeathScreen(false);
+			SetWinScreen(false);
 		}
 
 		/// <summary>
@@ -206,6 +210,15 @@ namespace MoreMountains.TopDownEngine
 				DeathScreen.SetActive(state);
 				EventSystem.current.sendNavigationEvents = state;
 			}
+		}
+
+		public virtual void SetWinScreen(bool state)
+		{
+			if (WinScreen != null)
+			{
+                WinScreen.SetActive(state);
+                EventSystem.current.sendNavigationEvents = state;
+            }
 		}
 
 		/// <summary>
